@@ -1,4 +1,10 @@
 sceneSetups:
+<<<<<<< HEAD
 - path: Assets/Scenes/GameLevel.unity
   isLoaded: 0
   isActive: 0
+=======
+- path: Assets/PlaceholderLevel.unity
+  isLoaded: 1
+  isActive: 1
+>>>>>>> master
