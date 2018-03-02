@@ -1,0 +1,18 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\MainMenu\MainMenu.cs">
+    <Files>
+      <File FileName="Assets\Scripts\DrawCard\RevealCard.cs" Line="29" Column="39" />
+      <File FileName="Assets\Scripts\DrawCard\RevealedCardCounter.cs" Line="8" Column="2" />
+      <File FileName="Assets\Scripts\DrawCard\StartLevel.cs" Line="35" Column="19" />
+      <File FileName="Assets\Scripts\GameLevel\TimerCountDown.cs" Line="29" Column="39" />
+      <File FileName="Assets\Scripts\GameLevel\FinishLevel.cs" Line="21" Column="38" />
+      <File FileName="Assets\Scripts\DrawCard\PlayerLife.cs" Line="15" Column="25" />
+      <File FileName="Assets\Scripts\MainMenu\MainMenu.cs" Line="11" Column="10" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

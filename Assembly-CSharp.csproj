@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8B22B0BF-E922-2A76-EA79-E84EB82CBD56}</ProjectGuid>
+    <ProjectGuid>{D045D849-6315-5033-0D24-99804743FD9A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -51,12 +51,22 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+     <Compile Include="Assets\Scripts\DrawCard\CardInteraction.cs" />
+     <Compile Include="Assets\Scripts\DrawCard\DrawCardController.cs" />
+     <Compile Include="Assets\Scripts\DrawCard\PlayerLife.cs" />
+     <Compile Include="Assets\Scripts\DrawCard\RevealCard.cs" />
+     <Compile Include="Assets\Scripts\DrawCard\RevealedCardCounter.cs" />
+     <Compile Include="Assets\Scripts\DrawCard\StartLevel.cs" />
      <Compile Include="Assets\Scripts\GameLevel\CameraFollow.cs" />
-     <Compile Include="Assets\Scripts\GameLevel\IDscript.cs" />
+     <Compile Include="Assets\Scripts\GameLevel\FinishLevel.cs" />
+     <Compile Include="Assets\Scripts\GameLevel\InteractiveItem.cs" />
+     <Compile Include="Assets\Scripts\GameLevel\InteractWithItems.cs" />
      <Compile Include="Assets\Scripts\GameLevel\MoveCharacter.cs" />
+     <Compile Include="Assets\Scripts\GameLevel\TimerCountDown.cs" />
+     <Compile Include="Assets\Scripts\MainMenu\MainMenu.cs" />
      <Compile Include="Assets\Scripts\testPlayerMechanic.cs" />
  <Reference Include="Facebook.Unity.Settings">
- <HintPath>C:/Users/ivank/Documents/GitHub/Game of Life/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ <HintPath>C:/Users/ivank/OneDrive/Documents/GitHub/GoLproject/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Users/ivank/Documents/Unity3d/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
