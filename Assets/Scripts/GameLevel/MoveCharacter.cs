@@ -24,24 +24,26 @@ public class MoveCharacter : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
-
+		
 		ReadInput ();
-
 	}
 
 	void FixedUpdate(){
-		
 		if (isJumped) {
 			CheckIfJumped ();
 		}
+
 	}
 
 	/// <summary>
 	/// Reads the player input
 	/// </summary>
 	void ReadInput(){
-		if (Input.GetAxis ("Horizontal")!=0) {
+		if (Input.GetAxis ("Horizontal") != 0 & isJumped) {
+			this.GetComponent<Rigidbody> ().AddForce (moveForward * walkSpeed/2 * Input.GetAxis("Horizontal"));
+		}
+
+		if (Input.GetAxis ("Horizontal")!=0 & !isJumped) {
 			this.GetComponent<Rigidbody> ().AddForce (moveForward * walkSpeed * Input.GetAxis("Horizontal"));
 		}
 
