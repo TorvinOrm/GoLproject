@@ -216,8 +216,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b3ec7f43b6c96441bb2824b135a1cdf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cardsQty: 9
-  maxCardsInRow: 5
+  cardsQty: 3
+  maxCardsInRow: 4
   distanceBetweenCards: 0.6
   distanceBetweenRows: 0.9
   rotationAngleBetweenCards: 0

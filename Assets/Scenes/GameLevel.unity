@@ -397,6 +397,7 @@ MonoBehaviour:
   countDown: {fileID: 1763846660}
   counterStart: 10
   counterOn: 0
+  leftTime: 0
 --- !u!1 &253297932
 GameObject:
   m_ObjectHideFlags: 0
@@ -409,6 +410,7 @@ GameObject:
   - component: {fileID: 253297935}
   - component: {fileID: 253297934}
   - component: {fileID: 253297933}
+  - component: {fileID: 253297938}
   m_Layer: 0
   m_Name: PointsItem (2)
   m_TagString: PointsItem
@@ -474,7 +476,7 @@ BoxCollider:
   m_GameObject: {fileID: 253297932}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -498,6 +500,18 @@ Transform:
   m_Father: {fileID: 1872083215}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 45}
+--- !u!135 &253297938
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 253297932}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5000002
+  m_Center: {x: 0.000009536743, y: 0.00001692772, z: 0.0000009536743}
 --- !u!1 &283520557
 GameObject:
   m_ObjectHideFlags: 0
@@ -2584,6 +2598,7 @@ MonoBehaviour:
   countDown: {fileID: 1763846660}
   counterStart: 10
   counterOn: 0
+  leftTime: 0
 --- !u!114 &1763846660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2882,6 +2897,7 @@ GameObject:
   - component: {fileID: 1956727276}
   - component: {fileID: 1956727275}
   - component: {fileID: 1956727274}
+  - component: {fileID: 1956727279}
   m_Layer: 0
   m_Name: PointsItem
   m_TagString: PointsItem
@@ -2947,7 +2963,7 @@ BoxCollider:
   m_GameObject: {fileID: 1956727273}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -2971,6 +2987,18 @@ Transform:
   m_Father: {fileID: 1872083215}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 45}
+--- !u!135 &1956727279
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1956727273}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5000002
+  m_Center: {x: 0.000020980835, y: 0.00002014637, z: -0.000007390976}
 --- !u!1001 &1971426028
 Prefab:
   m_ObjectHideFlags: 0
@@ -3047,6 +3075,7 @@ GameObject:
   - component: {fileID: 2024411541}
   - component: {fileID: 2024411540}
   - component: {fileID: 2024411539}
+  - component: {fileID: 2024411544}
   m_Layer: 0
   m_Name: PointsItem (1)
   m_TagString: PointsItem
@@ -3112,7 +3141,7 @@ BoxCollider:
   m_GameObject: {fileID: 2024411538}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -3136,6 +3165,18 @@ Transform:
   m_Father: {fileID: 1872083215}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 45, y: 45, z: 45}
+--- !u!135 &2024411544
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2024411538}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5000002
+  m_Center: {x: 0.000017166138, y: 0.0000014305115, z: 0.000025987625}
 --- !u!4 &2034197883 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4677077162773704, guid: 30857708764190a4aa4f21a380b2c400,
