@@ -19,10 +19,12 @@ public class InteractWithItems : MonoBehaviour {
 	}
 
 	void OnCollisionEnter(Collision col){
-		if (col.gameObject.tag == "PointsItem") {
+		if (col.gameObject.tag == "PointsItem" && !col.gameObject.GetComponent<InteractiveItem>().isInteracted) {
 			int scoreValue = col.gameObject.GetComponent<InteractiveItem> ().pointsValue;
-			AddScore (scoreValue);
+			col.gameObject.GetComponent<InteractiveItem> ().isInteracted = true;
+
 			Destroy (col.gameObject);
+			AddScore (scoreValue);
 		}
 	}
 

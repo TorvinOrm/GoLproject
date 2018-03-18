@@ -22,8 +22,8 @@ public class FinishLevel : MonoBehaviour {
 		}
 	}
 
-	public void CloseLevel(){
-		countInit = 3 + (int)Time.timeSinceLevelLoad;
+	public void CloseLevel(int timer){
+		countInit = timer + (int)Time.timeSinceLevelLoad;
 
 	}
 }
