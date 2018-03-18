@@ -9,6 +9,7 @@ public class InteractiveItem : MonoBehaviour {
 	public float scaleMaxSize;
 	public float scaleMinSize;
 	public float pulseSpeed;
+	public bool isInteracted;
 
 	bool isGrowing;
 
@@ -20,6 +21,7 @@ public class InteractiveItem : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		isGrowing = true;
+		isInteracted = false;
 
 		rotationV3 = new Vector3 (1.0f, 1.0f, 1.0f);
 		scaleMaxV3 = new Vector3 (scaleMaxSize, scaleMaxSize, scaleMaxSize);

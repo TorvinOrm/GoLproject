@@ -11,27 +11,35 @@ public class MoveCharacter : MonoBehaviour {
 	Vector3 moveForward;
 	Vector3 jumpUp;
 
-	bool isJumped;
+	public bool isJumped;
+	public bool isAtLadder;
 
 	float lastY;
+	CapsuleCollider playerCaps;
+	float playerDefDrag;
+
+	public int collisions;
 
 	// Use this for initialization
 	void Start () {
 		moveForward = new Vector3 (1, 0, 0);
 		jumpUp = new Vector3 (0, 1, 0);
 		isJumped = false;
+
+		playerCaps = this.GetComponent<CapsuleCollider> ();
+
+		playerDefDrag = this.GetComponent<Rigidbody> ().drag;
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	void Update(){
 		
-		ReadInput ();
-	}
-
-	void FixedUpdate(){
 		if (isJumped) {
 			CheckIfJumped ();
 		}
+
+		IsInfrontLadder ();
+		ReadInput ();
 
 	}
 
@@ -49,7 +57,13 @@ public class MoveCharacter : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.Space) & !isJumped){
 			this.GetComponent<Rigidbody> ().AddForce (jumpUp * jumpStrength);
+			collisions = -1;
 			isJumped = true;
+		}
+
+		if (Input.GetAxis("Vertical") != 0 & isAtLadder) {
+			this.transform.Translate (0.0f, Input.GetAxis("Vertical") * 0.2f, 0.0f);
+
 		}
 	}
 
@@ -57,9 +71,57 @@ public class MoveCharacter : MonoBehaviour {
 	/// Checks if jumped - this is required in order to avoid multiple jumping from the air, i.e. it is possible only when the character is set on floor
 	/// </summary>
 	void CheckIfJumped(){
-		if (lastY == this.transform.position.y) {
+
+		if (collisions > 0) {
 			isJumped = false;
 		}
-		lastY = this.transform.position.y;
 	}
+
+	void OnCollisionEnter(Collision collision){
+		collisions = 1;
+	}
+
+	void OnCollisionExit(Collision collision){
+		collisions = -1;
+	}
+
+	void IsInfrontLadder(){
+		Vector3 front = transform.TransformDirection (Vector3.forward + Vector3.up);
+		Vector3 back = transform.TransformDirection (Vector3.back + Vector3.up);
+		RaycastHit hit;
+
+//		RaycastHit hit;
+		if (Physics.Raycast (transform.position, back, out hit)) {
+
+			if (hit.transform.tag == "VertLadder") {
+				//print ("In front of ladder");
+				isAtLadder = true;
+			this.GetComponent<Rigidbody> ().useGravity = false;
+			this.GetComponent<Rigidbody> ().drag = 5;
+
+			} else {
+				isAtLadder = false;
+			this.GetComponent<Rigidbody> ().useGravity = true;
+			this.GetComponent<Rigidbody> ().drag = playerDefDrag;
+			}
+
+		} else if (Physics.Raycast (transform.position, front, out hit)) {
+			if (hit.transform.tag == "VertLadder") {
+				print ("In front of ladder");
+				isAtLadder = true;
+				this.GetComponent<Rigidbody> ().useGravity = false;
+				this.GetComponent<Rigidbody> ().drag = 5;
+
+			} else {
+				isAtLadder = false;
+				this.GetComponent<Rigidbody> ().useGravity = true;
+				this.GetComponent<Rigidbody> ().drag = playerDefDrag;
+			}
+		} else {
+			isAtLadder = false;
+			this.GetComponent<Rigidbody> ().useGravity = true;
+			this.GetComponent<Rigidbody> ().drag = playerDefDrag;
+		}
+	}
+
 }

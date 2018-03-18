@@ -27,7 +27,7 @@ public class TimerCountDown : MonoBehaviour {
 			countDown.text = timeVar.ToString ();
 		} else if (timeVar == 0) {
 			countDown.text = "Level finished!";
-			GameObject.Find ("GameController").GetComponent<FinishLevel> ().CloseLevel ();
+			GameObject.Find ("GameController").GetComponent<FinishLevel> ().CloseLevel (3);
 		}
 	}
 
