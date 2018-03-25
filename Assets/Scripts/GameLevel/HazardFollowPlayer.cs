@@ -18,7 +18,7 @@ public class HazardFollowPlayer : MonoBehaviour {
 	public bool canAttack;
 	public bool isCoolingDown;
 
-	int coolDownTimeCounter;
+//	int coolDownTimeCounter;
 	int coolDownStart;
 
 	// Use this for initialization
@@ -69,9 +69,10 @@ public class HazardFollowPlayer : MonoBehaviour {
 		print ("Player attacked");
 		isCoolingDown = true;
 		canAttack = false;
-		coolDownTimeCounter = coolDownTime;
+//		coolDownTimeCounter = coolDownTime;
 		coolDownStart = (int)Time.timeSinceLevelLoad;
 		print (coolDownStart);
+		target.GetComponent<HealthCounter> ().ChangeHealth (-1);
 
 	}
 

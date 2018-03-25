@@ -15,8 +15,10 @@ public class LeverSwitch : MonoBehaviour {
 
 	public bool switchStatus;
 	public GameObject connectedObject;
-	public Vector3 onPosition;
-	public Vector3 offPosition;
+	Vector3 onPosition;
+	Vector3 offPosition;
+	public Quaternion onRotation;
+	public Quaternion offRotation;
 
 	Vector3 directionVector;
 
@@ -25,21 +27,35 @@ public class LeverSwitch : MonoBehaviour {
 	Animation anim;
 
 	Vector3 targetPosition;
+	Quaternion targetRotation;
 
 	// Use this for initialization
 	void Start () {
+
+		if (connectedObject.GetComponent<ObjectPositionSaver> () != null) {
+			//reading the on/off data from the connected object - if it must move/rotate
+			onPosition = connectedObject.GetComponent<ObjectPositionSaver> ().onPosition;
+			offPosition = connectedObject.GetComponent<ObjectPositionSaver> ().offPosition;
+
+			onRotation = connectedObject.GetComponent<ObjectPositionSaver> ().onRotation;
+			offRotation = connectedObject.GetComponent<ObjectPositionSaver> ().offRotation;
+		} else if (connectedObject.GetComponent<ObjectPositionSaver> () != null) {
+			//reading the chest open/clos - if it has chest script on it
+
+		}
+
 		canBeActivated = false;
-		 
 		anim = this.GetComponent<Animation> ();
 		SwitchOff ();
 		if (switchStatus) {
 			connectedObject.transform.position = onPosition;
 			targetPosition = onPosition;
+			targetRotation = onRotation;
 
 		} else {
 			connectedObject.transform.position = offPosition;
 			targetPosition = offPosition;
-
+			targetRotation = offRotation;
 		}
 	}
 	
@@ -61,6 +77,8 @@ public class LeverSwitch : MonoBehaviour {
 	void FixedUpdate(){
 		if (connectedObject.transform.position != targetPosition) {
 			connectedObject.transform.position = Vector3.MoveTowards (connectedObject.transform.position, targetPosition, speed*Time.deltaTime * speed);
+			connectedObject.transform.rotation = Quaternion.RotateTowards (connectedObject.transform.rotation, targetRotation,speed*Time.deltaTime * speed*15);
+
 		}
 	}
 
@@ -77,8 +95,8 @@ public class LeverSwitch : MonoBehaviour {
 		switchBulb.GetComponent<Renderer> ().material = onMaterial;
 		if (connectedObject != null) {
 			targetPosition = onPosition;
+			targetRotation = onRotation;
 		}
-//		connectedObject.transform.position = onPosition;
 
 		switchStatus = true;
 	}
@@ -88,17 +106,8 @@ public class LeverSwitch : MonoBehaviour {
 		switchBulb.GetComponent<Renderer> ().material = offMaterial;
 		if (connectedObject != null) {
 			targetPosition = offPosition;
+			targetRotation = offRotation;
 		}
-//		connectedObject.transform.position = offPosition;
 		switchStatus = false;
-	}
-		
-
-	public void SaveOnPosition(){
-		onPosition = connectedObject.transform.position;
-	}
-
-	public void SaveOffPosition(){
-		offPosition = connectedObject.transform.position;
 	}
 }

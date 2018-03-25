@@ -15,7 +15,7 @@ public class MoveCharacter : MonoBehaviour {
 	public bool isAtLadder;
 
 	float lastY;
-	CapsuleCollider playerCaps;
+//	CapsuleCollider playerCaps;
 	float playerDefDrag;
 
 	public int collisions;
@@ -26,7 +26,7 @@ public class MoveCharacter : MonoBehaviour {
 		jumpUp = new Vector3 (0, 1, 0);
 		isJumped = false;
 
-		playerCaps = this.GetComponent<CapsuleCollider> ();
+//		playerCaps = this.GetComponent<CapsuleCollider> ();
 
 		playerDefDrag = this.GetComponent<Rigidbody> ().drag;
 	}
@@ -79,6 +79,12 @@ public class MoveCharacter : MonoBehaviour {
 
 	void OnCollisionEnter(Collision collision){
 		collisions = 1;
+
+		if (collision.gameObject.tag == "VertLadder") {
+			MoveLadderClimbSetup ();
+		} else {
+			MoveWalkSetup ();
+		}
 	}
 
 	void OnCollisionExit(Collision collision){
@@ -88,40 +94,46 @@ public class MoveCharacter : MonoBehaviour {
 	void IsInfrontLadder(){
 		Vector3 front = transform.TransformDirection (Vector3.forward + Vector3.up);
 		Vector3 back = transform.TransformDirection (Vector3.back + Vector3.up);
+
 		RaycastHit hit;
 
-//		RaycastHit hit;
 		if (Physics.Raycast (transform.position, back, out hit)) {
-
 			if (hit.transform.tag == "VertLadder") {
-				//print ("In front of ladder");
-				isAtLadder = true;
-			this.GetComponent<Rigidbody> ().useGravity = false;
-			this.GetComponent<Rigidbody> ().drag = 5;
-
+				MoveLadderClimbSetup ();
 			} else {
-				isAtLadder = false;
-			this.GetComponent<Rigidbody> ().useGravity = true;
-			this.GetComponent<Rigidbody> ().drag = playerDefDrag;
+				MoveWalkSetup ();
 			}
 
 		} else if (Physics.Raycast (transform.position, front, out hit)) {
 			if (hit.transform.tag == "VertLadder") {
-				print ("In front of ladder");
-				isAtLadder = true;
-				this.GetComponent<Rigidbody> ().useGravity = false;
-				this.GetComponent<Rigidbody> ().drag = 5;
-
+				MoveLadderClimbSetup ();
 			} else {
-				isAtLadder = false;
-				this.GetComponent<Rigidbody> ().useGravity = true;
-				this.GetComponent<Rigidbody> ().drag = playerDefDrag;
+				MoveWalkSetup ();
 			}
+
 		} else {
-			isAtLadder = false;
-			this.GetComponent<Rigidbody> ().useGravity = true;
-			this.GetComponent<Rigidbody> ().drag = playerDefDrag;
+			MoveWalkSetup ();
 		}
 	}
+
+	public void MoveWalkSetup(){
+		isAtLadder = false;
+		this.GetComponent<Rigidbody> ().useGravity = true;
+		this.GetComponent<Rigidbody> ().drag = playerDefDrag;
+	}
+
+	public void MoveLadderClimbSetup(){
+		isAtLadder = true;
+		this.GetComponent<Rigidbody> ().useGravity = false;
+		this.GetComponent<Rigidbody> ().drag = 5;
+	}
+
+//	void OnCollisionEnter(Collision col){
+////		if (col.gameObject.tag = "VertLadder") {
+////			MoveLadderClimbSetup ();
+////		} else {
+////			MoveWalkSetup ();
+////		}
+//	}
 
 }

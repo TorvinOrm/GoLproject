@@ -305,10 +305,12 @@ MonoBehaviour:
   canBeActivated: 0
   onMaterial: {fileID: 2100000, guid: 93b1c2ca88530684a9154e538b5bb4d2, type: 2}
   offMaterial: {fileID: 2100000, guid: 1890b1e8b4c31d045a6e5aee0e79a3c0, type: 2}
-  switchStatus: 0
+  switchStatus: 1
   connectedObject: {fileID: 0}
-  onPosition: {x: 4.23, y: 12.77, z: 0}
-  offPosition: {x: 4.23, y: 4.96, z: 0}
+  onPosition: {x: 4, y: 11.98, z: 0}
+  offPosition: {x: 4, y: 5.21, z: 0}
+  onRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
+  offRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   speed: 3
 --- !u!135 &135821439114349684
 SphereCollider:

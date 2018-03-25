@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class testPlayerMechanic : MonoBehaviour {
 
-	string testText;
+//	string testText;
 
 	// Use this for initialization
 	void Start () {
@@ -12,7 +12,7 @@ public class testPlayerMechanic : MonoBehaviour {
 	}
 
 	void testWriteAText(){
-		testText = "This is a Mighty Text!";
+//		testText = "This is a Mighty Text!";
 	}
 
 }

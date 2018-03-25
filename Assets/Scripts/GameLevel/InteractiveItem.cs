@@ -14,8 +14,8 @@ public class InteractiveItem : MonoBehaviour {
 	bool isGrowing;
 
 	Vector3 rotationV3;
-	Vector3 scaleMaxV3;
-	Vector3 scaleMinV3;
+//	Vector3 scaleMaxV3;
+//	Vector3 scaleMinV3;
 
 
 	// Use this for initialization
@@ -24,8 +24,8 @@ public class InteractiveItem : MonoBehaviour {
 		isInteracted = false;
 
 		rotationV3 = new Vector3 (1.0f, 1.0f, 1.0f);
-		scaleMaxV3 = new Vector3 (scaleMaxSize, scaleMaxSize, scaleMaxSize);
-		scaleMinV3 = new Vector3 (scaleMinSize, scaleMinSize, scaleMinSize);
+//		scaleMaxV3 = new Vector3 (scaleMaxSize, scaleMaxSize, scaleMaxSize);
+//		scaleMinV3 = new Vector3 (scaleMinSize, scaleMinSize, scaleMinSize);
 	}
 	
 	// Update is called once per frame
