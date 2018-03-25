@@ -1,14 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameLevel\MoveCharacter.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\GameLevel\InteractWithItems.cs">
     <Files>
-      <File FileName="Assets\Scripts\GameLevel\MoveCharacter.cs" Line="77" Column="4" />
-      <File FileName="Assets\Scripts\GameLevel\InteractWithItems.cs" Line="22" Column="105" />
-      <File FileName="Assets\Scripts\GameLevel\KillBlockHit.cs" Line="10" Column="32" />
-      <File FileName="Assets\Scripts\GameLevel\FinishLevel.cs" Line="26" Column="52" />
-      <File FileName="Assets\Scripts\GameLevel\TimerCountDown.cs" Line="30" Column="81" />
-      <File FileName="Assets\Scripts\GameLevel\LeverSwitch.cs" Line="72" Column="4" />
-      <File FileName="Assets\Scripts\GameLevel\HazardFollowPlayer.cs" Line="48" Column="114" />
+      <File FileName="Assets\Scripts\GameLevel\InteractWithItems.cs" Line="35" Column="2" />
+      <File FileName="Assets\Scripts\GameLevel\SwitchPositionSaver.cs" Line="21" Column="36" />
+      <File FileName="Assets\Scripts\GameLevel\HazardFollowPlayer.cs" Line="75" Column="59" />
+      <File FileName="Assets\Scripts\GameLevel\KillBlockDestroying.cs" Line="24" Column="29" />
+      <File FileName="Assets\Scripts\GameLevel\ChestOpen.cs" Line="33" Column="24" />
+      <File FileName="Assets\Scripts\GameLevel\HealthCounter.cs" Line="34" Column="30" />
+      <File FileName="Assets\Scripts\GameLevel\InteractiveItem.cs" Line="11" Column="26" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
